@@ -18,7 +18,7 @@ pipeline {
         stage("Push docker image") {
             steps {
                 withCredentials([string(credentialsId: 'DOCKER_HUB_TOKEN', variable: 'DOCKER_HUB_TOKEN')]) {
-                    sh "echo $DOCKER_HUB_TOKEN | /usr/bin/docker login -u yashchandane --password-stdin"
+                    sh "echo DOCKER_HUB_TOKEN | /usr/bin/docker login -u yashchandane --password-stdin"
                     sh "/usr/bin/docker image push yashchandane/backend"
                 }
             }
